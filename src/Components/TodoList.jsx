@@ -11,7 +11,7 @@ export const TodoList = () => {
   const navigate = useNavigate();
   
   // Set up the proper usage of useQuery hook
-  const usersQuery = useQuery();
+  const usersQuery = useQuery(`https://jsonplaceholder.typicode.com/posts/`);
 
   useEffect(() => {
     // Load todos (if any) from localStorage
@@ -22,8 +22,8 @@ export const TodoList = () => {
 
   useEffect(() => {
     // Save todos to localStorage
-    
-  }, [todos]);
+    localStorage.setItem("userName", JSON.stringify(userName));
+  }, [userName]);
 
   const handleAddTodo = () => {
       // access the input and update the state variable "todos"

@@ -7,10 +7,21 @@ export const SignIn = () => {
 
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    // Store token in localStorage
-    
-    // Navigate user to home page
+  const handleLogin = async (e) => {
+  
+    e.preventDefault();
+    try {
+      setPassword(true); 
+      await SignIn(inputs);
+      navigate("/")
+      
+      
+     
+    } catch (err) {
+      setUsername(err.response.data);
+    }finally {
+      setPassword(false); 
+    }
   };
 
   return (
